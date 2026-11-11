@@ -5,6 +5,9 @@ import "./App.css";
 import TestoMostrato from "./components/TestoMostrato";
 import { useContext } from "react";
 import ConsigliContext from "./context/ConsigliContext";
+import withLimit from "./HOC/withLimit";
+
+const ElencoLimitato = withLimit(Elenco, 4);
 
 function App() {
   // STATI
@@ -48,7 +51,7 @@ function App() {
             Visualizzazioni totali: {visualizzazioni}
           </p>
 
-          <Elenco></Elenco>
+          <ElencoLimitato></ElencoLimitato>
           <button
             onClick={mostraConsiglio}
             className="bg-orange-400 hover:bg-orange-500 p-2 text-black rounded-xl mb-4 ml-3 mt-1"
